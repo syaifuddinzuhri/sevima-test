@@ -1,0 +1,314 @@
+:root {
+    --blue-50: #f2f8fe;
+    --blue-100: #d9e6fb;
+    --blue-200: #b3d4f8;
+    --blue-300: #8ac2f5;
+    --blue-400: #5faef1;
+    --blue-500: #3182ce;
+    --blue-600: #2170c9;
+    --blue-700: #2056ae;
+    --blue-800: #193d8a;
+    --blue-900: #003399;
+
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: "Roboto", sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+.font-pacifico {
+    font-family: "Pacifico", cursive;
+}
+
+.auth-container {
+    min-height: 100dvh;
+}
+
+.auth-hero-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    margin: 40px auto 0 auto;
+    filter: drop-shadow(0 4px 20px rgba(87, 87, 87, 0.6));
+}
+
+.hero-title {
+    width: max-content;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    box-shadow: 8px 8px 20px rgba(255, 255, 255, 0.1),
+        -8px -8px 20px rgba(255, 255, 255, 0.6),
+        inset 0 1px 3px rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hero-title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0)
+    );
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    pointer-events: none;
+}
+
+.hero-title h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+    font-family: "Pacifico", cursive;
+}
+
+/* .auth-hero-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/img/auth-bg.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: 0;
+} */
+
+.auth-hero-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-form-container {
+    position: relative;
+}
+
+.form-control {
+    border-color: var(--gray-600);
+    padding: 0.75rem 1rem;
+    position: relative;
+    /* background-color: #111; */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    color: #fff !important;
+}
+
+.form-label {
+    font-size: 14px !important;
+    color: var(--gray-400);
+}
+
+.form-control::placeholder {
+    font-size: 14px !important;
+    color: var(--gray-500);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.2);
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    right: 20px;
+    cursor: pointer;
+    color: var(--gray-300);
+}
+
+.toggle-password:hover {
+    color: var(--gray-200);
+}
+
+.auth-form-box {
+    /* border: 1px solid var(--gray-300); */
+    padding: 24px 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+.auth-form-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-glass {
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 14px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.btn-glass::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0)
+    );
+    border-radius: 14px 14px 0 0;
+    pointer-events: none;
+}
+
+.btn-glass:hover {
+    transform: translateY(-1px);
+    box-shadow: inset 0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        width: 80%;
+    }
+
+    /* .auth-container {
+        flex-direction: column;
+    }
+
+    .auth-hero-container {
+        height: 300px;
+    }
+
+    .auth-form-container {
+        margin-top: -60px;
+        padding: 0 10%;
+        position: relative;
+        z-index: 2;
+        padding-bottom: 50px;
+    } */
+}
+
+.futuristic {
+    position: relative;
+}
+
+.futuristic .bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(80px);
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+.futuristic .b1 {
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(
+        circle,
+        rgba(79, 70, 229, 0.4),
+        rgba(147, 197, 253, 0.1)
+    );
+    animation-duration: 14s;
+}
+
+.futuristic .b2 {
+    width: 120px;
+    height: 120px;
+    top: 0;
+    right: 0;
+    background: radial-gradient(
+        circle,
+        rgba(255, 210, 46, 0.8),
+        rgba(191, 132, 252, 0.1)
+    );
+    animation-duration: 18s;
+}
+
+.futuristic .b3 {
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(
+        circle,
+        rgba(230, 44, 224, 0.5),
+        rgba(147, 197, 253, 0.05)
+    );
+    animation-duration: 16s;
+}
+
+.futuristic .b4 {
+    width: 500px;
+    height: 500px;
+    bottom: -10%;
+    right: -10%;
+    background: radial-gradient(
+        circle,
+        rgba(46, 182, 255, 0.2),
+        rgba(147, 197, 253, 0.05)
+    );
+    animation-duration: 16s;
+}
+
+.futuristic > div:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(15px) rotate(15deg);
+    }
+    100% {
+        transform: translateY(0) translateX(-10px) rotate(-5deg);
+    }
+}
+
+@keyframes shimmer {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
