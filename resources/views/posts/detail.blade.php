@@ -225,32 +225,34 @@
                         });
                 })
 
-                $('.btn-delete').on('click', function() {
-                    let url = `${window.baseUrl}/posts/${window.postId}`;
-                    axios.delete(url)
-                        .then(function(response) {
-                            if (typeof getPosts === 'function') {
-                                let nextPageUrlPosts = '{{ url('/api/posts') }}?limit=9';
-                                getPosts(nextPageUrlPosts, true)
-                            };
-                            const modalInstance = bootstrap.Modal.getInstance($modal[0]);
-                            modalInstance.hide();
-                        })
-                        .catch(function(error) {
-                            const message = error.response?.data?.message ||
-                                'Error';
-                            Swal.fire({
-                                toast: true,
-                                position: 'top-end',
-                                icon: 'error',
-                                title: message,
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true
-                            });
-                        });
-                })
             });
+
+            $('.btn-delete').on('click', function() {
+                if (!window.postId) return;
+                let url = `${window.baseUrl}/posts/${window.postId}`;
+                axios.delete(url)
+                    .then(function(response) {
+                        if (typeof getPosts === 'function') {
+                            let nextPageUrlPosts = '{{ url('/api/posts') }}?limit=9';
+                            getPosts(nextPageUrlPosts, true)
+                        };
+                        const modalInstance = bootstrap.Modal.getInstance($modal[0]);
+                        modalInstance.hide();
+                    })
+                    .catch(function(error) {
+                        const message = error.response?.data?.message ||
+                            'Error';
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'error',
+                            title: message,
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true
+                        });
+                    });
+            })
         });
     </script>
 @endpush

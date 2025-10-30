@@ -22,6 +22,13 @@
 
 <body>
 
+    <div class="loading-page d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="d-md-none px-3 sticky-top shadow bg-header py-4">
@@ -160,6 +167,7 @@
         function getAuthMe() {
             axios.get('{{ url('/api/auth/me') }}')
                 .then(function(response) {
+                    $('.loading-page').addClass('d-none')
                     const data = response.data.data;
                     const imageUrl = data.imagePathUrl || '/assets/img/default-avatar.png';
 
