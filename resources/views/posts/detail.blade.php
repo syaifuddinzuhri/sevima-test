@@ -2,12 +2,14 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content bg-dark text-white rounded-4 overflow-hidden">
             <div class="modal-body p-0 position-relative">
-                <div class="btn-close-custom">
-                    <i class="fas fa-times"></i>
-                </div>
                 <div class="row g-0">
-                    <div class="col-md-7 bg-black">
-                        <img src="" class="post-image-detail w-100 h-100 object-fit-cover" alt="">
+                    <div class="col-md-7 bg-black position-relative">
+                        <div class="btn-close-custom">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="post-image-wrapper">
+                            <img src="" class="post-image-detail" alt="">
+                        </div>
                     </div>
 
                     <div class="col-md-5 d-flex flex-column">
